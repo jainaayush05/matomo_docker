@@ -14,7 +14,7 @@ There is also a `.env` file in the root folder.
 
 Run from the root folder:
 ```
-docker-compose -f x86/docker-compose.yml -d --project-director ./matomo up --remove-orphans
+docker-compose -f x86/docker-compose.yml  --project-director ./matomo up -d --remove-orphans
 ```
 
 The default address is [http://localhost:8080](http://localhost:8080/)
