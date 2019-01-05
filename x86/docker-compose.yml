@@ -6,6 +6,9 @@ services:
     image: nginx:latest
     ports:
       - "8080:80"
+    deploy:
+      restart_policy:
+        condition: always
     volumes:
       - type: volume
         source: matomo-app
@@ -21,6 +24,9 @@ services:
 
   matomo:
     image: luongbui/matomo:3.5.1
+    deploy:
+      restart_policy:
+        condition: always
     volumes:
       - type: volume
         source: matomo-app
@@ -32,6 +38,9 @@ services:
 
   matomo_database:
     image: mysql:5.7.22
+    deploy:
+      restart_policy:
+        condition: always
     ports:
       - "3306:3306"
     environment:
@@ -48,6 +57,9 @@ services:
 
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
+    deploy:
+      restart_policy:
+        condition: always
     environment:
       PMA_HOST: matomo_database
       PMA_PORT: ${MYSQL_PORT}
